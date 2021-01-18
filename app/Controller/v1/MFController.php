@@ -72,7 +72,7 @@ class MFController extends AbstractController
             $this->container->get(MFService::class)->sell((string)$order_no);
         }
         catch (LogicException $e) {
-            $this->error($e->getMessage(), 400, Context::get('_replace'));
+            $this->error($e->getMessage(), 400, Context::get('_replace', []));
         }
 
         $this->success();
